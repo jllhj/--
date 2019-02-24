@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1 style="margin-top: 60px">用户上传代码</h1>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="code">
+    <input type="submit" value="提交">
+</form>
+{% endblock %}

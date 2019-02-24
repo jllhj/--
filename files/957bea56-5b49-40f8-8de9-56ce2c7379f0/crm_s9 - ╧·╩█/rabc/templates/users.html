@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block con %}
+<h4>用户列表</h4>
+    {% if 'add' in request.actions %} {# 此处还有一种创建一个类 在rabc文件里面 #}
+        <a href="/users/add" class="btn btn-primary add-user" style="margin: 7px 0 7px 0">添加用户</a>
+    {% endif %}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th>名字</th>
+            <th>职位</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in user_list %}
+            <tr>
+                 <td>{{ forloop.counter }}</td>
+            <td>{{ user.name }}</td>
+            <td>
+                {% for role in user.roles.all %}
+                {{ role.title }}
+            {% endfor %}
+            </td>
+            <td>
+                {% if 'edit' in request.actions %}
+                    <a href="/users/edit/{{ user.pk }}" class="btn btn-primary">编辑</a>
+                {% endif %}
+                {% if 'delete' in request.actions %}
+                    <a href="/users/delete/{{ user.pk }}" class="btn btn-danger">删除</a>
+                {% endif %}
+
+            </td>
+            </tr>
+
+
+
+        {% endfor %}
+
+    </tbody>
+</table>
+{% endblock %}

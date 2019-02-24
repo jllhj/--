@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+{% block js %}
+<script src="/static/chart/highcharts.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="container" style="max-width:500px;height:400px"></div>
+<h1 style="margin-top: 60px">用户列表</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>昵称</th>
+        <th>查看代码提交记录</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in data_list %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.user}}</td>
+        <td>{{row.nickname}}</td>
+        <td><a href="/detail/{{row.id}}">查看代码</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<script>
+    var line_list;
+    var nickname_list;
+    $.ajax({
+        url: '',
+        type: 'POST',
+        success: function (data) {
+                data=JSON.parse(data);
+                line_list = data['line_list'];
+                nickname_list = data['nickname_list'];
+                console.log(line_list,nickname_list);
+
+            var chart = Highcharts.chart('container', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: '用户总代码量'
+                },
+                subtitle: {
+                    text: '数据来源: WorldClimate.com'
+                },
+                xAxis: {
+                    categories: [
+                        '总代码量'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: '代码量 (行)'
+                    }
+                },
+                tooltip: {
+                    // head + 每个 point + footer 拼接成完整的 table
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} 行</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: nickname_list[0],
+                    data: [line_list[0]]
+                }, {
+                    name: nickname_list[1],
+                    data: [line_list[1]]
+                },]
+            });
+        }
+    });
+</script>
+{% endblock %}

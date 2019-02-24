@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block js %}
+<script src="/static/chart/highcharts.js"></script>
+{% endblock %}
+
+{% block content %}
+<h1 style="margin-top: 60px">用户代码量提交记录</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>行数</th>
+            <th>日期</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in record_list %}
+            <tr>
+                <td>{{row.id}}</td>
+                <td>{{row.line}}</td>
+                <td>{{row.ctime}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div id="container" style="max-width:800px;height:400px"></div>
+<script>
+    var line_list;
+    var time_list;
+    $.ajax({
+        url:'',
+        type:'POST',
+        success:function (data) {
+            data=JSON.parse(data);
+            line_list=data["line_list"];
+            time_list=data["time_list"];
+            console.log(line_list);
+
+    var chart = Highcharts.chart('container', {
+	chart: {
+		type: 'line'
+	},
+	title: {
+		text: '用户代码量提交记录'
+	},
+	subtitle: {
+		text: '数据来源: WorldClimate.com'
+	},
+	xAxis: {
+		categories: time_list
+	},
+	yAxis: {
+		title: {
+			text: '代码行数'
+		}
+	},
+        legend: {
+		layout: 'vertical',
+		align: 'right',
+		verticalAlign: 'middle'
+	},
+	plotOptions: {
+		line: {
+			dataLabels: {
+				enabled: true
+			},
+			enableMouseTracking: false
+		}
+	},
+	series: [{
+		name: '代码行数',
+		data: line_list
+	}],
+
+});
+
+    }})
+</script>
+{% endblock %}
