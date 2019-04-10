@@ -106,9 +106,10 @@ def upload():
     shutil._unpack_zipfile(file_obj.stream, target_path)
 
     # 4 遍历所有文件
-    total_num = 0
+    total_num = 0 # 所有代码的行数
     for base_path,folder,file_list in os.walk(target_path):
         for file_name in file_list:
+            # 路径和文件名拼接
             file_path = os.path.join(base_path,file_name)
             # print(file_path)
             file_ext = file_path.rsplit('.',maxsplit=1)
@@ -117,14 +118,14 @@ def upload():
                 continue
             if file_ext[1] != 'py':
                 continue
-            file_num = 0
+            file_num = 0 # 一个文件中的代码行数
 
             with open(file_path,'rb') as f:
                 for line in f:
-                    line = line.strip()
+                    line = line.strip() # 空行
                     if not line:
                         continue
-                    if line.startswith(b'#'):
+                    if line.startswith(b'#'): # 注释
                         continue
                     file_num += 1
             print(file_num,file_path)
