@@ -63,16 +63,19 @@
 </div>
 <script>
     var url=document.location.href;
+    // var $url = window.location.href;
     url=url.split("/",-1)[3];
-    var lis=["user_list","upload"];{
-        for(var i=0;i<lis.length;i++){
-            if(lis[i]===url){
-                i=i+1;
-                $(".nav-sidebar :nth-child("+i+")").addClass("active")
-            }
-        }
+    var lis=["user_list","upload"];
 
+    for(var i=0;i<lis.length;i++){
+        if(lis[i]===url){
+            i=i+1;
+            // :nth-child(n) 选择器匹配属于其父元素的第 N 个子元素，不论元素的类型。
+            $(".nav-sidebar :nth-child("+i+")").addClass("active")
+        }
     }
+
+
 
 
 </script>
