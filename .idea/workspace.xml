@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caa11d2f-b151-4018-8caa-f6b6d173dc18" name="Default Changelist" comment="更新小注释">
+    <list default="true" id="caa11d2f-b151-4018-8caa-f6b6d173dc18" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,7 +85,7 @@
           <entry key="dummy" value="9" />
           <entry key="html" value="2699" />
           <entry key="js" value="6" />
-          <entry key="py" value="4940" />
+          <entry key="py" value="4941" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
@@ -94,7 +95,7 @@
           <entry key="HTML" value="2699" />
           <entry key="JavaScript" value="6" />
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Python" value="4940" />
+          <entry key="Python" value="4941" />
         </counts>
       </usages-collector>
     </session>
@@ -175,8 +176,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/codestatistics/views/index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="221">
+              <caret line="124" column="45" selection-start-line="124" selection-start-column="45" selection-end-line="124" selection-end-column="45" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -263,7 +264,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-10" />
     <option name="y" value="30" />
     <option name="width" value="1710" />
@@ -464,11 +465,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554895441283</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="更新小注释">
+      <created>1555487295552</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555487295552</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988399" visible="true" weight="0.21447721" />
@@ -727,8 +735,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/codestatistics/views/index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="221">
+          <caret line="124" column="45" selection-start-line="124" selection-start-column="45" selection-end-line="124" selection-end-column="45" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>
