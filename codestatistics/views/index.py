@@ -122,7 +122,7 @@ def upload():
 
             with open(file_path,'rb') as f:
                 for line in f:
-                    line = line.strip() # 空行
+                    line = line.strip() # 空行1
                     if not line:
                         continue
                     if line.startswith(b'#'): # 注释
